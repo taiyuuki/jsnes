@@ -10,8 +10,8 @@ class Mapper4 extends Mapper0 {
   static CMD_SEL_ROM_PAGE1 = 6;
   static CMD_SEL_ROM_PAGE2 = 7;
 
-  reset() {
-    super.reset();
+  constructor(nes) {
+    super(nes);
     this.command = 0;
     this.prgAddressSelect = 0;
     this.chrAddressSelect = 0;

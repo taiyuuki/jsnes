@@ -3,9 +3,7 @@ import { copyArrayElements } from "../utils.js";
 class Mapper0 {
   constructor(nes) {
     this.nes = nes;
-  }
 
-  reset() {
     this.joy1StrobeState = 0;
     this.joy2StrobeState = 0;
     this.joypadLastWrite = 0;

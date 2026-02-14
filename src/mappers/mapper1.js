@@ -3,10 +3,6 @@ import Mapper0 from "./mapper0.js";
 class Mapper1 extends Mapper0 {
   constructor(nes) {
     super(nes);
-  }
-
-  reset() {
-    super.reset();
 
     // 5-bit buffer:
     this.regBuffer = 0;

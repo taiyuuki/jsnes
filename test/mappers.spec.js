@@ -17,7 +17,6 @@ describe("Mappers", function () {
       },
     };
     mapper = new Mappers[0](mockNes);
-    mapper.reset();
   });
 
   describe("write", function () {

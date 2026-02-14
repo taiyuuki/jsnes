@@ -46,13 +46,13 @@ class NES {
 
   // Resets the system
   reset() {
-    if (this.mmap !== null) {
-      this.mmap.reset();
-    }
-
     this.cpu = new CPU(this);
     this.ppu = new PPU(this);
     this.papu = new PAPU(this);
+
+    if (this.mmap !== null) {
+      this.mmap = this.rom.createMapper();
+    }
 
     this.lastFpsTime = null;
     this.fpsFrameCount = 0;
@@ -207,7 +207,6 @@ class NES {
 
     this.reset();
     this.mmap = this.rom.createMapper();
-    this.mmap.reset();
     this.mmap.loadROM();
     this.ppu.setMirroring(this.rom.getMirroringType());
     this.romData = data;
