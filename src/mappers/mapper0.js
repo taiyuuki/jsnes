@@ -140,16 +140,16 @@ class Mapper0 {
             // Joystick 2 + Strobe
             // https://wiki.nesdev.com/w/index.php/Zapper
             // Bits 0-4 from controller/zapper, bits 5-7 are open bus (data bus)
-            let w;
+            // Zapper bits (3=light sensor, 4=trigger) are only driven when the
+            // zapper is connected (zapperX/Y non-null). With no zapper, these
+            // bits are 0 (standard controller doesn't drive them).
+            let w = 0;
 
-            if (
-              this.zapperX !== null &&
-              this.zapperY !== null &&
-              this.nes.ppu.isPixelWhite(this.zapperX, this.zapperY)
-            ) {
-              w = 0;
-            } else {
-              w = 0x1 << 3;
+            if (this.zapperX !== null && this.zapperY !== null) {
+              // Zapper connected: bit 3 = light not detected
+              if (!this.nes.ppu.isPixelWhite(this.zapperX, this.zapperY)) {
+                w = 0x1 << 3;
+              }
             }
 
             if (this.zapperFired) {
