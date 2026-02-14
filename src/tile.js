@@ -65,12 +65,7 @@ class Tile {
       tIndex = 0;
       for (let y = 0; y < 8; y++) {
         for (let x = 0; x < 8; x++) {
-          if (
-            x >= srcx1 &&
-            x < srcx2 &&
-            y >= srcy1 &&
-            y < srcy2
-          ) {
+          if (x >= srcx1 && x < srcx2 && y >= srcy1 && y < srcy2) {
             palIndex = this.pix[tIndex];
             tpri = priTable[fbIndex];
             if (palIndex !== 0 && pri <= (tpri & 0xff)) {
@@ -90,12 +85,7 @@ class Tile {
       tIndex = 7;
       for (let y = 0; y < 8; y++) {
         for (let x = 0; x < 8; x++) {
-          if (
-            x >= srcx1 &&
-            x < srcx2 &&
-            y >= srcy1 &&
-            y < srcy2
-          ) {
+          if (x >= srcx1 && x < srcx2 && y >= srcy1 && y < srcy2) {
             palIndex = this.pix[tIndex];
             tpri = priTable[fbIndex];
             if (palIndex !== 0 && pri <= (tpri & 0xff)) {
@@ -116,12 +106,7 @@ class Tile {
       tIndex = 56;
       for (let y = 0; y < 8; y++) {
         for (let x = 0; x < 8; x++) {
-          if (
-            x >= srcx1 &&
-            x < srcx2 &&
-            y >= srcy1 &&
-            y < srcy2
-          ) {
+          if (x >= srcx1 && x < srcx2 && y >= srcy1 && y < srcy2) {
             palIndex = this.pix[tIndex];
             tpri = priTable[fbIndex];
             if (palIndex !== 0 && pri <= (tpri & 0xff)) {
@@ -142,12 +127,7 @@ class Tile {
       tIndex = 63;
       for (let y = 0; y < 8; y++) {
         for (let x = 0; x < 8; x++) {
-          if (
-            x >= srcx1 &&
-            x < srcx2 &&
-            y >= srcy1 &&
-            y < srcy2
-          ) {
+          if (x >= srcx1 && x < srcx2 && y >= srcy1 && y < srcy2) {
             palIndex = this.pix[tIndex];
             tpri = priTable[fbIndex];
             if (palIndex !== 0 && pri <= (tpri & 0xff)) {

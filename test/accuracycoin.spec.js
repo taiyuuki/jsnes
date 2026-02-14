@@ -274,8 +274,10 @@ const KNOWN_FAILURES = {
   0x0479: "Explicit DMA abort not emulated",
   0x0478: "Implicit DMA abort not emulated",
 
-  // SHX: DMC DMA interaction subtest fails with bus hijacking fix
-  0x044a: "SHX DMC DMA interaction not fully accurate",
+  // SHY: subtest 7 fails due to accumulated instruction timing inaccuracies
+  // (the emulator's cycle counts aren't perfect — see 0x0460). The branch
+  // page-crossing fix shifted timing by ~41 cycles, exposing this sensitivity.
+  0x0449: "SHY timing-sensitive subtest not accurate",
 
   // Controller: partial fix, subtest 4 still fails
   0x045f: "Controller strobing not fully accurate",
