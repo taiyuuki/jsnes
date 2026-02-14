@@ -1,18 +1,13 @@
 import React, { Component } from "react";
-import ReactGA from "react-ga4";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ListPage from "./ListPage";
 import RunPage from "./RunPage";
-import config from "./config";
 import { handleError } from "./utils";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { error: null };
-    if (config.GOOGLE_ANALYTICS_CODE) {
-      ReactGA.initialize(config.GOOGLE_ANALYTICS_CODE);
-    }
   }
 
   render() {
@@ -30,7 +25,6 @@ class App extends Component {
             <Route exact path="/" element={<ListPage />} />
             <Route path="/run/:slug" element={<RunPage />} />
             <Route path="/run" element={<RunPage />} />
-            <Route path="/" element={this.recordPageview} />
           </Routes>
         </div>
       </BrowserRouter>
@@ -41,11 +35,6 @@ class App extends Component {
     this.setState({ error });
     handleError(error, errorInfo);
   }
-
-  recordPageview = ({ location }) => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname });
-    return null;
-  };
 }
 
 export default App;

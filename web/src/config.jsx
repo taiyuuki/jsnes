@@ -97,7 +97,6 @@ const config = {
       url: "https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/lj65/lj65.nes",
     },
   },
-  GOOGLE_ANALYTICS_CODE: import.meta.env.VITE_GOOGLE_ANALYTICS_CODE,
 };
 
 export default config;
