@@ -98,7 +98,6 @@ const config = {
     },
   },
   GOOGLE_ANALYTICS_CODE: import.meta.env.VITE_GOOGLE_ANALYTICS_CODE,
-  SENTRY_URI: import.meta.env.VITE_SENTRY_URI,
 };
 
 export default config;

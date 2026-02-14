@@ -1,4 +1,3 @@
-import Raven from "raven-js";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { NES } from "jsnes";
@@ -86,7 +85,7 @@ class Emulator extends Component {
     window["nes"] = this.nes;
 
     this.frameTimer = new FrameTimer({
-      onGenerateFrame: Raven.wrap(() => {
+      onGenerateFrame: () => {
         try {
           this.nes.frame();
         } catch (e) {
@@ -95,8 +94,8 @@ class Emulator extends Component {
             this.props.onError(e);
           }
         }
-      }),
-      onWriteFrame: Raven.wrap(this.screen.writeBuffer),
+      },
+      onWriteFrame: this.screen.writeBuffer,
     });
 
     // Set up gamepad and keyboard
