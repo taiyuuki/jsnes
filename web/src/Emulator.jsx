@@ -44,6 +44,16 @@ class Emulator extends Component {
   }
 
   componentDidMount() {
+    try {
+      this._init();
+    } catch (e) {
+      if (this.props.onError) {
+        this.props.onError(e);
+      }
+    }
+  }
+
+  _init() {
     // Initial layout
     this.fitInParent();
 

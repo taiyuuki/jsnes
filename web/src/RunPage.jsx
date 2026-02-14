@@ -217,7 +217,7 @@ class RunPage extends Component {
 
   handleEmulatorError = (error) => {
     this.setState({
-      error: `The game has crashed: ${error.message}`,
+      error: error.message,
       running: false,
       paused: false,
     });
